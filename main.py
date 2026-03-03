@@ -1,5 +1,5 @@
 import discord
-from datetime import datetime
+from datetime import datetime, timezone      # ← Added timezone here
 import os
 import requests
 
@@ -35,7 +35,8 @@ async def on_ready():
 async def on_member_join(member):
     try:
         guild = member.guild
-        account_age = (datetime.utcnow() - member.created_at).days
+        # Fixed: Use timezone-aware UTC now to match member.created_at
+        account_age = (datetime.now(timezone.utc) - member.created_at).days
         
         message = (
             f"📥 **New Join Detected**\n"
