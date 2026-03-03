@@ -4,9 +4,9 @@ import os
 import requests
 
 intents = discord.Intents.default()
-intents.members = True
-intents.presences = True
-intents.message_content = True
+#intents.members = True
+#intents.presences = True
+#intents.message_content = True
 
 client = discord.Client(intents=intents)
 
